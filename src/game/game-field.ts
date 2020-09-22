@@ -30,6 +30,7 @@ export class GameField {
   plant(coordinates: ICoordinates) {
     this.field[coordinates.x][coordinates.y] = new Mine();
 
+    // todo probably there is something better
     for (let increaseMinesX = coordinates.x - 1; increaseMinesX <= coordinates.x + 1; increaseMinesX += 1) {
       for (let increaseMinesY = coordinates.y - 1; increaseMinesY <= coordinates.y + 1; increaseMinesY += 1) {
         if (!this.isOutOfRange({ x: increaseMinesX, y: increaseMinesY })) {
@@ -76,6 +77,7 @@ export class GameField {
       value: cell.minesAround,
     });
 
+    // todo probably there is something better
     for (let revealMinesX = coordinates.x - 1; revealMinesX <= coordinates.x + 1; revealMinesX += 1) {
       for (let revealMinesY = coordinates.y - 1; revealMinesY <= coordinates.y + 1; revealMinesY += 1) {
         const coordinatesToReveal = {
