@@ -26,7 +26,7 @@ router.post("/select", (ctx) => {
     ctx.repositories.gameRepository.delete(ctx.request.body.game_id);
   }
 
-  createLogger("GAME_DEBUG").debug(game.gameField.toString());
+  createLogger("GAME_DEBUG").debug("\n", game.gameField.toString());
 
   ctx.body = {
     results: revealed,
