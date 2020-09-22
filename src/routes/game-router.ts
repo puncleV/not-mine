@@ -25,6 +25,8 @@ router.post("/select", (ctx) => {
     ctx.repositories.gameRepository.delete(ctx.request.body.game_id);
   }
 
+  console.log(game.gameField.toString());
+
   ctx.body = {
     results: revealed,
   };
