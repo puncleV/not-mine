@@ -16,7 +16,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "lint": "eslint . --fix --ext .ts",
-    "start": "node build/app.js",
+    "start": "node build/src/app.js",
     "start:watch": "nodemon",
     "test": "jest --env=node --colors --coverage test"
   },
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@koa/cors": "3.1.0",
+    "@types/koa__cors": "3.0.1",
     "koa": "2.13.0",
     "koa-bodyparser": "4.3.0",
     "koa-router": "9.4.0",
