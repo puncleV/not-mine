@@ -20,9 +20,8 @@ router.post("/select", (ctx) => {
   }
 
   ctx.body = game.select(ctx.request.body.grid_position);
-  console.table(ctx.body);
 
-  ctx.body = {};
+  console.log(game.gameField.toString());
 });
 
 export const greetingsRouter = router;

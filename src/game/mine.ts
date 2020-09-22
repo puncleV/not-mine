@@ -25,6 +25,6 @@ export class Mine implements ICell {
   }
 
   toString() {
-    return "X";
+    return `${this._revealed ? "X" : "Z"}`;
   }
 }

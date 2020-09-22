@@ -6,7 +6,8 @@ export interface IGameDependencies {
 }
 
 export class Game {
-  private gameField: GameField;
+  // todo make private
+  public gameField: GameField;
   private minePlanterStrategy: IMinePlanterStrategy;
   private bombsCount: number;
   // CS reference
@@ -38,10 +39,12 @@ export class Game {
       field: this.gameField,
     });
 
-    console.log(this.gameField.toString());
+    this.bombHasBeenPlanted = true;
   }
 
   select(coordinates: ICoordinates) {
     this.plantIfNotPlanted(coordinates);
+
+    return this.gameField.reveal(coordinates);
   }
 }

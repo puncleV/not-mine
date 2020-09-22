@@ -26,6 +26,6 @@ export class EmptyCell implements ICell {
   }
 
   toString() {
-    return `${this.minesNearby}`;
+    return `${this._revealed ? this.minesNearby : "Z"}`;
   }
 }
