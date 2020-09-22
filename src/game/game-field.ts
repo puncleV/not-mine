@@ -35,8 +35,6 @@ export class GameField {
         }
       }
     }
-
-    console.log(this.toString());
   }
 
   toString() {
