@@ -1,5 +1,3 @@
-import { resolveSrv } from "dns";
-
 import { v4 } from "uuid";
 
 import { Game } from "../game";
