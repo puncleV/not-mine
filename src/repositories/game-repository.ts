@@ -1,3 +1,5 @@
+import { resolveSrv } from "dns";
+
 import { v4 } from "uuid";
 
 import { Game } from "../game";
@@ -24,5 +26,9 @@ export class GameRepository {
 
   get(id: string) {
     return this.games.get(id);
+  }
+
+  delete(id: string) {
+    this.games.delete(id);
   }
 }

@@ -8,8 +8,6 @@ const router = new Router<ICustomAppContext, ICustomAppContext>({
 
 router.post("/start", (ctx) => {
   ctx.body = ctx.repositories.gameRepository.create(ctx.request.body.grid_size, ctx.request.body.bomb_quantity);
-
-  console.table(ctx.repositories.gameRepository.get(ctx.body));
 });
 
 router.post("/select", (ctx) => {
@@ -19,9 +17,13 @@ router.post("/select", (ctx) => {
     throw new Error("Cant find a game");
   }
 
-  ctx.body = game.select(ctx.request.body.grid_position);
+  const revealed = game.select(ctx.request.body.grid_position);
 
-  console.log(game.gameField.toString());
+  if (revealed.some((r) => r.value === -1)) {
+    ctx.repositories.gameRepository.delete(ctx.request.body.game_id);
+  }
+
+  ctx.body = revealed;
 });
 
 export const greetingsRouter = router;
