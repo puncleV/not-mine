@@ -1,5 +1,6 @@
 import Router from "koa-router";
 
+import { createLogger } from "../logger";
 import { ICustomAppContext } from "../types";
 
 const router = new Router<ICustomAppContext, ICustomAppContext>({
@@ -25,7 +26,7 @@ router.post("/select", (ctx) => {
     ctx.repositories.gameRepository.delete(ctx.request.body.game_id);
   }
 
-  console.log(game.gameField.toString());
+  createLogger("GAME_DEBUG").debug(game.gameField.toString());
 
   ctx.body = {
     results: revealed,
