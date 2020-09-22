@@ -7,15 +7,15 @@ export class NaivePlanterStrategy implements IMinePlanterStrategy {
     let bombsToPlant = bombsCount;
 
     for (; bombsToPlant > 0; ) {
-      const x = _.random(0, field.size.x);
-      const y = _.random(0, field.size.y);
+      const x = _.random(0, field.size.x - 1);
+      const y = _.random(0, field.size.y - 1);
 
       // todo probably can make SomeClassName.Equals or something
       if (exceptCoordinates.x === x && exceptCoordinates.y === y) {
         continue;
       }
 
-      if (field.getCell({ x, y }).isMine || field.isOutOfRange({ x, y })) {
+      if (field.isOutOfRange({ x, y }) || field.getCell({ x, y }).isMine) {
         continue;
       }
 

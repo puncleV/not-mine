@@ -37,6 +37,8 @@ export class Game {
       exceptCoordinates,
       field: this.gameField,
     });
+
+    console.log(this.gameField.toString());
   }
 
   select(coordinates: ICoordinates) {

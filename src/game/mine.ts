@@ -23,4 +23,8 @@ export class Mine implements ICell {
   get isMine() {
     return true;
   }
+
+  toString() {
+    return "X";
+  }
 }

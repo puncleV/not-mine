@@ -13,13 +13,16 @@ router.post("/start", (ctx) => {
 });
 
 router.post("/select", (ctx) => {
-  const game = ctx.repositories.gameRepository.get(ctx.body.game_id);
+  const game = ctx.repositories.gameRepository.get(ctx.request.body.game_id);
 
   if (game == null) {
     throw new Error("Cant find a game");
   }
 
-  ctx.body = game.select(ctx.body.grid_position);
+  ctx.body = game.select(ctx.request.body.grid_position);
+  console.table(ctx.body);
+
+  ctx.body = {};
 });
 
 export const greetingsRouter = router;

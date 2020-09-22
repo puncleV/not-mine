@@ -24,4 +24,8 @@ export class EmptyCell implements ICell {
   get isMine() {
     return false;
   }
+
+  toString() {
+    return `${this.minesNearby}`;
+  }
 }
