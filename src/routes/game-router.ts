@@ -7,7 +7,9 @@ const router = new Router<ICustomAppContext, ICustomAppContext>({
 });
 
 router.post("/start", (ctx) => {
-  ctx.body = ctx.repositories.gameRepository.create(ctx.request.body.grid_size, ctx.request.body.bomb_quantity);
+  ctx.body = {
+    game_id: ctx.repositories.gameRepository.create(ctx.request.body.grid_size, ctx.request.body.bomb_quantity),
+  };
 });
 
 router.post("/select", (ctx) => {
@@ -23,7 +25,9 @@ router.post("/select", (ctx) => {
     ctx.repositories.gameRepository.delete(ctx.request.body.game_id);
   }
 
-  ctx.body = revealed;
+  ctx.body = {
+    results: revealed,
+  };
 });
 
 export const greetingsRouter = router;
